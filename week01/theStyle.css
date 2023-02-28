@@ -1,0 +1,33 @@
+body {
+    background-color: green;
+
+}
+
+p {
+    background-color: pink;
+    padding: 20px;
+}
+
+
+img {
+    width: 40vw;
+}
+
+
+#theSpecial {
+ background-color: yellow;
+ padding: 40px;
+ border: solid 10px black;
+ margin: 100px;
+}
+
+.theClass {
+    background-color: blue;
+}
+
+#theFlex{
+    display: flex;
+    padding: 30px;
+    margin: 10px;
+    justify-content: space-between;
+}
