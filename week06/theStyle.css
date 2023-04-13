@@ -1,0 +1,221 @@
+h1 {
+  font-size: 4rem;
+}
+p {
+  font-size: 1.5rem;
+}
+body {
+  margin: 0;
+  font-family: "Prompt", system-ui, sans-serif;
+  color: white;
+  background: #000;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+section:first-of-type {
+  background: black;
+}
+
+.blue {
+  background: #1e187a;
+}
+
+.red {
+  background: #dd3f31;
+}
+
+.pink {
+  background: #ff0066;
+  overflow: hidden;
+}
+
+.dark {
+  background: #0f0f10;
+}
+
+/* Curved bg with plain CSS */
+
+.curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: hsl(216, 21%, 16%);
+}
+
+.curve::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background-color: #3c31dd;
+  transform: translate(-4%, 40%);
+  z-index: -1;
+}
+
+/* Bubble bg with plain CSS */
+
+.bubble::after {
+  content: "";
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  background-color: #0f0f10;
+  height: 85%;
+}
+
+/* Curved bg with SVG via https://www.shapedivider.app/ */
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(103% + 1.3px);
+  height: 262px;
+}
+
+.wave .shape-fill {
+  fill: hsl(240, 3%, 6%);
+}
+
+/* SVG background image via https://haikei.app/ */
+
+.spacer {
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url("./layer1.svg");
+}
+.layer2 {
+  background-image: url("./layer2.svg");
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+/* Blobs SVG background image via https://haikei.app/ */
+
+.blob-motion {
+  position: absolute;
+  transform: translateY(-20%);
+  z-index: 0;
+  animation: pan 4s infinite forwards linear;
+}
+
+/* .blob-motion path {
+    transition: 0.25s fill ease;
+  }
+
+  .blob-motion path:hover {
+    fill:aqua;
+    transform: scale(2);
+  }
+   */
+
+@keyframes pan {
+  0% {
+    transform: translateY(-20%) translateX(0);
+  }
+  50% {
+    transform: translateY(-20%) translateX(75vw);
+  }
+  50.01% {
+    transform: translateY(-20%) translateX(-75vw);
+  }
+  100% {
+    transform: translateY(-20%) translateX(0);
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(8px);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.BlueWaves {
+  position: absolute;
+
+  z-index: 0;
+  animation: fade-in 4s ease, jiggle 0.6s infinite forwards linear;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.BlueWaves ~ h1,
+.BlueWaves ~ p {
+  position: relative;
+  z-index: 2;
+}
+
+.blob-content {
+  z-index: 1;
+}
+
+.blobs {
+  width: 100%;
+  background: url("./blobs.svg") no-repeat bottom / cover;
+}
